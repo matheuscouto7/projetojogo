@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SoftGame - Fase Dois</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+      var resposta;
+      function changeValue(value) {
+        resposta = value;
+      }
+
+      function submitForm() {
+        if (resposta === undefined) {
+          alert("Selecione uma resposta!");
+          return;
+        }
+
+        if (resposta === false) {
+          alert("Você morreu ! Java carregou uma magia poderosa enquanto você descansava e ao ser atingido, foi dizimado pela força das trevas... Força valente cavaleiro, Chances como essa não podem ser desperdiçadas !");
+          location.href = "/";
+          return;
+        }
+
+        location.href = "/winner.html";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container mt-sm-5 my-1">
+      <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <div class="py-2 h5">
+          <b>Chegamos ao reino de Front-End arrasando com os portões, e no calor da batalha, o mestre da magia negra Java foi visto por você no topo da muralha norte. É a sua chance!
+          Em uma batalha incessante com o mestre da magia negra. Você está exausto e se apoia com a sua espada no chão, enquanto Java recupera mana para lançar o próximo
+feitiço. Pode ser a hora de acabar com essa guerra de uma vez por todas !
+          </b>
+        </div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+          <label class="options">
+            Para descansar mais um pouco enquanto Java recupera sua mana para continuar a luta
+            <input type="radio" name="radio" onclick="changeValue(false)" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="options">
+            Para usar a última energia que resta em um ataque rápido e furtivo e enquanto Java está indefeso
+            <input type="radio" name="radio" onclick="changeValue(true)" />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+      <div class="d-flex align-items-center pt-3">
+        <div class="ml-auto mr-sm-5">
+          <button class="btn btn-success" onclick="submitForm()">Next</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

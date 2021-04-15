@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SoftGame - Fase um</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+      var resposta;
+      function changeValue(value) {
+        resposta = value;
+      }
+
+      function submitForm() {
+        if (resposta === undefined) {
+          alert("Selecione uma resposta!");
+          return;
+        }
+
+        if (resposta === false) {
+          alert(" Você morreu! O mago aliado derrubou um dragão inimigo na montanha e causou um desfiladeiro que matou você e metade do seu exército. Seja sábio, valente cavaleiro...");
+          location.href = "/";
+          return;
+        }
+
+        location.href = "/fasedois.html";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container mt-sm-5 my-1">
+      <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <div class="py-2 h5">
+          <b>Qual caminho você deseja seguir?</b>
+        </div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+          <label class="options"
+            >Ir para as montanhas
+            <input type="radio" name="radio" onclick="changeValue(false)" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="options"
+            >Ir pela floresta
+            <input type="radio" name="radio" onclick="changeValue(true)" />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+      <div class="d-flex align-items-center pt-3">
+        <div class="ml-auto mr-sm-5">
+          <button class="btn btn-success" onclick="submitForm()">Next</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

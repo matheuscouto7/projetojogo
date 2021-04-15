@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SoftGame - Fase Dois</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+      var resposta;
+      function changeValue(value) {
+        resposta = value;
+      }
+
+      function submitForm() {
+        if (resposta === undefined) {
+          alert("Selecione uma resposta!");
+          return;
+        }
+
+        if (resposta === false) {
+          alert(" Você morreu! A parede de escudos não aguentou o bote da serpente gigante, corrompendo toda a formação e causando a morte de muitos. Uma parede de escudos nem sempre é a solução!");
+          location.href = "/";
+          return;
+        }
+
+        location.href = "/fasetres.html";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container mt-sm-5 my-1">
+      <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <div class="py-2 h5">
+          <b> Na saída da floresta, você se deparou com uma serpente gigante! O que você deseja fazer? </b>
+        </div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+          <label class="options">
+            Utilizar uma parede de escudos na frente dos arqueiros, para que tenham proteção e atirem à vontade para matar a serpente..
+            <input type="radio" name="radio" onclick="changeValue(true)" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="options">
+            Cercar a serpente com os cavaleiros da linha de frente e a distrair enquanto os arqueiros disparam de cima das árvores.
+            <input type="radio" name="radio" onclick="changeValue(false)" />
+            <span class="checkmark"></span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center pt-3">
+        <div class="ml-auto mr-sm-5">
+          <button class="btn btn-success" onclick="submitForm()">Next</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
